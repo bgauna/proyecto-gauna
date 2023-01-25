@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
+import PlataformaDeDatos from './components/PlataformaDeDatos/PlataformaDeDatos';
+import ProductoDetallado from './components/ProductoDetallado/ProductoDetallado';
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faFontAwesome } from '@fortawesome/free-regular-svg-icons'
+library.add(fas, faFontAwesome)
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path='/' element={<PlataformaDeDatos />}></Route>
+          <Route path='category/:category' element={<PlataformaDeDatos />}></Route>
+          <Route path='item/:id' element={<ProductoDetallado />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
