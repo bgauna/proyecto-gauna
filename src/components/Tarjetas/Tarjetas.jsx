@@ -1,8 +1,20 @@
-
-
-const Tarjetas = () => {
+import Individual from "../Individual/Individual";
+import "./Tarjetas.css"
+const Tarjetas = ({productos}) => {
+  console.log(productos);
   return (
-    <div>Tarjetas</div>
+    <section className="cartas">
+
+      {
+        productos.map((elemento) => (
+          <Individual prod={elemento}/>
+        )
+        )
+      }
+
+
+
+    </section>
   )
 }
 
